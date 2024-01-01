@@ -55,17 +55,6 @@ def split_into_sentences(text: str) -> list[str]:
     if sentences and not sentences[-1]: sentences = sentences[:-1]
     return sentences
 
-# def highlight_sentences(sentences, labels):
-#     highlighted_text = ""
-
-#     for sentence, label in zip(sentences, labels):
-#         if label == 1:
-#             highlighted_text += f"**{sentence}** "
-#         else:
-#             highlighted_text += f"{sentence} "
-
-#     return highlighted_text.strip()
-
 def highlight_sentences(sentences, labels):
     highlighted_text = ""
 
@@ -93,16 +82,6 @@ def extract_text_from_pdf(file):
         text += pdf_reader.getPage(page_num).extractText()
     return text
 
-# def detection(input_data):
-
-#     sentences = split_into_sentences(input_data)
-#     test = [loaded_tokenizer.tokenize(sentence) for sentence in sentences]
-#     X_test = loaded_vectorizer.transform(test)
-#     preds = [inner_list[1] for inner_list in loaded_model.predict_proba(X_test)]
-
-#     annotated_text = highlight_sentences(sentences, preds)
-# return annotated_text
-
 def detection(input_data):
     sentences = split_into_sentences(input_data)
     test = [loaded_tokenizer.tokenize(sentence) for sentence in sentences]
@@ -126,77 +105,7 @@ def detection(input_data):
     # mention = f"The text contains {ai_generated_count} AI-generated sentences (red), {human_generated_count} human-generated sentences (green), and {uncertain_count} uncertain sentences (grey)."
 
     return annotated_text, mention
-    # if preds == 0:
-    #     return 'The text is not AI generated'
-    # else:
-    #     return 'The text is AI generated'
-    # annotated_text = input_data  # Start with the original text
-    # if preds == 1:
-    #     # If AI generated, annotate the text with the label '1'
-    #     annotated_text += " (AI generated - Label: 1)"
-    # for label in set(preds):
-    #     if label == 1:
-    #         # If AI generated, annotate the text with the corresponding label
-    #         annotated_text += f" (AI generated - Label: {label})"
 
-    
-
-# def main():
-
-#     # giving a title 
-#     st.title('AI Text Detection App')
-
-#     # getting the data from user
-
-#     Input_cell = st.text_input('Write the text here')
-
-#     # code for prediction
-#     # detect = '' 
-
-#     # if st.button('Detect'):
-#     #     detect = detection(Input_cell)
-#     # code for prediction
-#     # annotated_text = ''
-
-#     # if st.button('Detect'):
-#     #     annotated_text = detection(Input_cell)
-
-    
-#     # st.success(detect)
-#     annotated_text = ''
-#     mention = ''
-
-#     if st.button('Detect'):
-#         annotated_text, mention = detection(Input_cell)
-
-#     # Display mention
-#     st.markdown(mention, unsafe_allow_html=True)
-
-#     # Display highlighted text
-#     st.markdown("### Highlighted Text")
-#     st.markdown(annotated_text, unsafe_allow_html=True)
-
-#     # Upload file
-#     st.sidebar.header("Upload File")
-#     uploaded_file = st.sidebar.file_uploader("Choose a file", type=["pdf", "txt"])
-
-#     if uploaded_file is not None:
-#         file_contents = ""
-
-#         if uploaded_file.type == "application/pdf":
-#             file_contents = extract_text_from_pdf(uploaded_file)
-#         elif uploaded_file.type == "text/plain":
-#             file_contents = uploaded_file.read()
-
-#         st.sidebar.text("File Content:")
-#         st.sidebar.text(file_contents)
-
-#         # Display button for using file content as input
-#         if st.sidebar.button("Use File Content as Input"):
-#             Input_cell = file_contents
-
-#     # Display text input box
-#     st.text_input('Or upload a file and use its content as input', value=Input_cell)
 
 def main():
     # giving a title
