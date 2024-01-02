@@ -1,12 +1,17 @@
 # bpe_tokenizer_module.py
 
-from tokenizers import Tokenizer, models, trainers, normalizers, pre_tokenizers, processors
-from tokenizers.processors import TemplateProcessing
-from tokenizers.normalizers import NFC, Lowercase
-from tokenizers.pre_tokenizers import ByteLevel
-from tokenizers import PreTrainedTokenizerFast
+from tokenizers import (
+    decoders,
+    models,
+    normalizers,
+    pre_tokenizers,
+    processors,
+    trainers,
+    Tokenizer
+)
+from transformers import PreTrainedTokenizerFast
+from tqdm.auto import tqdm
 from datasets import Dataset
-from tqdm import tqdm
 
 class BPETokenizer:
     special_tokens = ["[UNK]", "[PAD]", "[CLS]", "[SEP]", "[MASK]"]
