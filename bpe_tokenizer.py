@@ -26,7 +26,7 @@ class BPETokenizer:
         )
         
     @classmethod
-    def chunk_dataset(cls, dataset, chunk_size=1_000):
+    def chunk_dataset(cls, dataset, chunk_size=1000):
         for i in range(0, len(dataset), chunk_size):
             yield dataset[i : i + chunk_size]["text"]
         
@@ -50,5 +50,5 @@ class BPETokenizer:
             cls_token="[CLS]",
             sep_token="[SEP]",
             mask_token="[MASK]",
-            model_max_length=max_length
+            # model_max_length=max_length
         )
