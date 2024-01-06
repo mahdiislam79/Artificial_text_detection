@@ -33,4 +33,4 @@ Note: All data files must be located in ```.data/```
 After running the ```streamlit.py``` file with the command above, you should be forwarded to the following web page:
 ![AI Text Detector](homepage_1.jpg)
 
-It will be great to receive some advice regarding the project since it's just a prototype. I plan to work on both the models and the frontend in the future! Thanks for reading.
+##### It will be great to receive some advice regarding the project since it's just a prototype. I plan to work on both the models and the frontend in the future! Thanks for reading.
