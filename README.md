@@ -28,8 +28,6 @@ To use the project, run the following commands:
 
 ```streamlit run streamlit.py``` 
 
-Note: All data files must be located in ```.data/```
-
 After running the ```streamlit.py``` file with the command above, you should be forwarded to the following web page:
 ![AI Text Detector](homepage_1.jpg)
 
