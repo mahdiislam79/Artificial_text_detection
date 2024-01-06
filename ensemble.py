@@ -1,8 +1,3 @@
-from lightgbm import LGBMClassifier
-from catboost import CatBoostClassifier
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.ensemble import VotingClassifier
-from sklearn.linear_model import SGDClassifier
 class EnsembleClassifier:
     def __init__(self):
         self.clf = MultinomialNB(alpha=0.02)
@@ -38,6 +33,11 @@ class EnsembleClassifier:
 
     def fit(self, X_train, y_train):
         self.ensemble.fit(X_train, y_train)
+        gc.collect()
 
     def predict(self, X_test):
         return self.ensemble.predict(X_test)
+    
+    def predict_proba(self, X_test):
+        return self.ensemble.predict_proba(X_test)
+    

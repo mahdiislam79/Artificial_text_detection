@@ -4,6 +4,10 @@ import joblib
 import PyPDF2
 from text_preprocessing import split_into_sentences
 
+from tfidf_vectorizer import CustomTfidfVectorizer
+from bpe_tokenizer import BPETokenizer
+from ensemble import EnsembleClassifier
+
 def highlight_sentences(sentences, labels):
     highlighted_text = ""
 
@@ -20,9 +24,9 @@ def highlight_sentences(sentences, labels):
 def dummy(text):
     return text
 
-loaded_tokenizer = joblib.load(open('/Users/mahdiislam/Higher Studies/MAIA Study/Semester 1/Software Engineering/Project/Artificial_text_detection/tokenizer.pkl', 'rb'))
-loaded_vectorizer = joblib.load(open('/Users/mahdiislam/Higher Studies/MAIA Study/Semester 1/Software Engineering/Project/Artificial_text_detection/tfidf_vectorizer.pkl', 'rb'))
-loaded_model = pickle.load(open('/Users/mahdiislam/Higher Studies/MAIA Study/Semester 1/Software Engineering/Project/Artificial_text_detection/trained_model.sav', 'rb'))
+loaded_tokenizer = joblib.load(open('/Users/mahdiislam/Higher Studies/MAIA Study/Semester 1/Software Engineering/Project/Artificial_text_detection/saved_models/tokenizer.pkl', 'rb'))
+loaded_vectorizer = joblib.load(open('/Users/mahdiislam/Higher Studies/MAIA Study/Semester 1/Software Engineering/Project/Artificial_text_detection/saved_models/vectorizer.pkl', 'rb'))
+loaded_model = pickle.load(open('/Users/mahdiislam/Higher Studies/MAIA Study/Semester 1/Software Engineering/Project/Artificial_text_detection/saved_models/ensemble_model.sav', 'rb'))
 
 def extract_text_from_pdf(file):
     pdf_reader = PyPDF2.PdfFileReader(file)

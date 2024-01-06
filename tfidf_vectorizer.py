@@ -1,5 +1,3 @@
-from sklearn.feature_extraction.text import TfidfVectorizer
-
 class CustomTfidfVectorizer:
     def __init__(self, ngram_range=(3, 5), lowercase=False, sublinear_tf=True):
         self.vectorizer = None
@@ -11,7 +9,7 @@ class CustomTfidfVectorizer:
     def dummy(self, text):
         return text
 
-    def fit(self, data):
+    def fit(self, texts):
         self.vectorizer = TfidfVectorizer(
             ngram_range=self.ngram_range,
             lowercase=self.lowercase,
@@ -22,19 +20,19 @@ class CustomTfidfVectorizer:
             token_pattern=None,
             strip_accents='unicode'
         )
-        self.vectorizer.fit(data)
+        self.vectorizer.fit(texts)
         self.vocab = self.vectorizer.vocabulary_
         
-    def fit_transform(self, data):
+    def fit_transform(self, texts):
         if self.vectorizer is None:
             raise ValueError("fit() must be called before fit_transform()")
         
         # Use the fitted vectorizer for fit_transform
-        return self.vectorizer.fit_transform(data)
+        return self.vectorizer.fit_transform(texts)
 
-    def transform(self, data):
+    def transform(self, texts):
         if self.vectorizer is None:
             raise ValueError("fit() must be called before transform()")
         
         # Use the already fitted vectorizer
-        return self.vectorizer.transform(data)
+        return self.vectorizer.transform(texts)
