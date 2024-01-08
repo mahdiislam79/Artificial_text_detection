@@ -28,7 +28,7 @@ To use the project, run the following commands:
 
 ```streamlit run streamlit.py``` 
 
-Note: All data files must be located in ```.data/```
+Note: Before running the ```streamlit.py``` change the paths of the ```loaded_tokenizer```, ```loaded_vectorizer``` and ```loaded_model``` to the absolute path of those files after cloning the whole folder in your PC. You can find the saved model weights in ```saved_models``` folder. The combinations are either ```tokenizer.pkl, vectorizer.pkl, ensemble_model.sav``` or ```tokenizer_2.pkl, vectorizer_2.pkl, ensemble_model_2.sav```.
 
 After running the ```streamlit.py``` file with the command above, you should be forwarded to the following web page:
 ![AI Text Detector](homepage_1.jpg)
