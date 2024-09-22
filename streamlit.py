@@ -24,9 +24,10 @@ def highlight_sentences(sentences, labels):
 def dummy(text):
     return text
 
-loaded_tokenizer = joblib.load(open('/Users/mahdiislam/Higher Studies/MAIA Study/Semester 1/Software Engineering/Project/Artificial_text_detection/saved_models/tokenizer.pkl', 'rb'))
-loaded_vectorizer = joblib.load(open('/Users/mahdiislam/Higher Studies/MAIA Study/Semester 1/Software Engineering/Project/Artificial_text_detection/saved_models/vectorizer.pkl', 'rb'))
-loaded_model = pickle.load(open('/Users/mahdiislam/Higher Studies/MAIA Study/Semester 1/Software Engineering/Project/Artificial_text_detection/saved_models/ensemble_model.sav', 'rb'))
+loaded_tokenizer = joblib.load(open('saved_models/tokenizer.pkl', 'rb'))
+loaded_vectorizer = joblib.load(open('saved_models/vectorizer.pkl', 'rb'))
+loaded_model = pickle.load(open('saved_models/ensemble_model.sav', 'rb'))
+
 
 def extract_text_from_pdf(file):
     pdf_reader = PyPDF2.PdfFileReader(file)
